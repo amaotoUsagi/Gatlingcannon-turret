@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+    <SoundDef>
+        <defName>Shot_GatlingCannon</defName>  
+        <context>MapOnly</context>
+        <maxVoices>8</maxVoices>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                <li Class="AudioGrain_Clip">
+                    <clipPath>Gattling_AltFire</clipPath>
+                </li>
+                </grains>   
+                <sustainLoop>False</sustainLoop>
+                <pitchRange>0.90~1.00</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

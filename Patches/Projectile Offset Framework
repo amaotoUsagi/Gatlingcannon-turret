@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Projectile Offset Framework</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+			
+				<li Class="SafePatcher.PatchOperationSetModExtension">
+					<xpath>Defs/ThingDef[defName="Gun_GatlingCannonTurret"]</xpath>
+					<value>
+                        <li Class="ProjectileOffset.CompProperties_ProjectileOffset">
+                        <offsets>
+                            <li>(1.1,0,0.38)</li>
+                            <li>(1.1,0,-0.38)</li>
+                        </offsets>
+                        </li>
+					</value>
+				</li>
+				
+			</operations>
+		</match>
+	</Operation>
+			
+</Patch>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+
+  <ThingDef ParentName="TurretAutoBase">
+    <defName>Turret_GatlingCannon</defName>
+    <label>gatling cannon</label>
+    <description>A heavy automatic turret. Its large-caliber shells do heavy damage over significant ranges.</description>
+    <uiIconPath>Things/Building/GatlingCannonIcon</uiIconPath>
+    <graphicData>
+      <texPath>Things/Building/GatlingCannon_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>66500</WorkToBuild>
+      <MaxHitPoints>600</MaxHitPoints>
+      <Flammability>0.1</Flammability>
+      <Mass>125</Mass>
+      <Bulk>100</Bulk>
+      <AimingAccuracy>0.5</AimingAccuracy>
+      <ShootingAccuracyTurret>1</ShootingAccuracyTurret>
+    </statBases>
+    <costList>
+      <Steel>500</Steel>
+      <Plasteel>60</Plasteel>
+      <ComponentIndustrial>11</ComponentIndustrial>
+    </costList>
+    <size>(2,2)</size>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <rotatable>false</rotatable>
+    <building>
+      <ai_combatDangerous>true</ai_combatDangerous>
+      <turretGunDef>Gun_GatlingCannonTurret</turretGunDef>
+      <turretTopOffset>(0.0, 0.38)</turretTopOffset>
+      <turretTopDrawSize>1.75</turretTopDrawSize>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+    </placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>CE_HeavyTurret</li>
+      <li>MultibarrelWeapons</li>
+    </researchPrerequisites>
+    <thingCategories Inherit="false"/>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>0.5</multiplier>
+      </li>
+      <li>
+        <damageDef>Bomb_Secondary</damageDef>
+        <multiplier>0.5</multiplier>
+      </li>
+      <li>
+        <damageDef>Demolish</damageDef>
+        <multiplier>0.5</multiplier>
+      </li>
+      <li>
+        <damageDef>Thump</damageDef>
+        <multiplier>0.5</multiplier>
+      </li>
+    </damageMultipliers>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseTurretGun">
+    <defName>Gun_GatlingCannonTurret</defName>
+    <label>gatling cannon turret</label>
+    <graphicData>
+      <texPath>Things/Building/Turret/GatlingCannon_Turret</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <description>An automated multi-barrel cannon designed to be mounted on a turret, effective against infantry and light vehicles.</description>
+    <statBases>
+      <SightsEfficiency>1</SightsEfficiency>
+      <ShotSpread>0.01</ShotSpread>
+      <SwayFactor>1.42</SwayFactor>
+      <RangedWeapon_Cooldown>0.42</RangedWeapon_Cooldown>
+      <Mass>36.5</Mass>
+    </statBases>
+    <verbs>
+      <li Class="CombatExtended.VerbPropertiesCE">
+        <recoilAmount>0.39</recoilAmount> <!-- orignally 1.54, but it cant hit anything -->
+        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_20x102mmNATO_AP</defaultProjectile>
+        <warmupTime>2.3</warmupTime>
+        <range>62</range>
+        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        <burstShotCount>50</burstShotCount>
+        <stopBurstWithoutLos>false</stopBurstWithoutLos>
+        <soundCast>Shot_GatlingCannon</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>16</muzzleFlashScale>
+        <recoilPattern>Mounted</recoilPattern>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="CombatExtended.CompProperties_AmmoUser">
+        <magazineSize>500</magazineSize>
+        <reloadTime>9.2</reloadTime>
+        <ammoSet>AmmoSet_20x102mmNATO</ammoSet>
+      </li>
+      <li Class="CombatExtended.CompProperties_FireModes">
+        <aiAimMode>AimedShot</aiAimMode>
+        <noSnapshot>true</noSnapshot>
+        <noSingleShot>true</noSingleShot>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>
